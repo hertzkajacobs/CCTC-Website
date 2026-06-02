@@ -37,7 +37,9 @@ dots.forEach((dot, i) => {
 
 /* ── Scroll reveal ── */
 const revealEls = document.querySelectorAll(
-  '.info-card, .service-card, .team-card, .t-card, .blog-featured, .blog-card, .bp-card'
+  '.info-card, .service-card, .team-card, .t-card, .blog-featured, .blog-card, .bp-card, ' +
+  '.prog-card, .value-card, .ci-item, .ins-logo-card, .sidebar-card, ' +
+  '.prog-feature, .teen-highlight, .about-feature, .section-header, .bp-card'
 );
 
 const io = new IntersectionObserver((entries) => {
@@ -48,12 +50,19 @@ const io = new IntersectionObserver((entries) => {
       io.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.08 });
 
-revealEls.forEach(el => {
+revealEls.forEach((el, i) => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(24px)';
-  el.style.transition = 'opacity .5s ease, transform .5s ease';
+  /* stagger siblings in the same parent */
+  const siblings = el.parentElement
+    ? [...el.parentElement.children].filter(c => c === el || c.matches(
+        '.info-card,.service-card,.team-card,.t-card,.blog-card,.prog-card,.value-card,.ci-item,.ins-logo-card,.about-feature,.prog-feature,.teen-highlight'
+      ))
+    : [];
+  const idx = siblings.indexOf(el);
+  el.style.transition = `opacity .5s ease ${idx * 80}ms, transform .5s ease ${idx * 80}ms`;
   io.observe(el);
 });
 
