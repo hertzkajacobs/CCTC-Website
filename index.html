@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/solid.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/brands.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/regular.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 </head>
 <body>
 
@@ -123,10 +124,10 @@
         <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.5c1.15 1.16 3.17 1 4.69-.5 1.87 1.87 4.86 2.37 7.08.66A7 7 0 0 0 17 8z"/></svg>
         Recovery. Healing. A New Beginning.
       </div>
-      <h1>From Struggle To Strength, We're With You Every Step</h1>
+      <h1>From Struggle To <span id="morphWord">Strength</span>,<br> We're With You Every Step</h1>
       <p>At Cherry Creek Treatment Center, we believe recovery is more than just treatment &mdash; it's a journey toward reclaiming your life with the support of a compassionate, expert team.</p>
       <div class="hero-btns">
-        <a href="contact.html" class="btn btn-primary">Book A Free Assessment <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <a href="contact.html" class="btn btn-primary btn-pulse">Book A Free Assessment <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         <div class="hero-phone">
           <i class="fa-solid fa-phone-volume"></i>
           <span>(316) 330-7126</span>
@@ -248,81 +249,100 @@
       <h2>Comprehensive Care at Every Stage of Recovery</h2>
       <p>We offer a full continuum of addiction treatment &mdash; from medical detox to long-term aftercare &mdash; so you're supported every step of the way.</p>
     </div>
-    <div class="services-grid">
+    <!-- Interactive Pathway Timeline — hover a step to expand it -->
+    <p style="text-align:center;font-size:13px;color:var(--text-light);margin-top:-28px;margin-bottom:0">
+      <i class="fa-solid fa-hand-pointer" style="color:var(--accent-green)"></i>&nbsp; Hover any step to learn more
+    </p>
 
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80" alt="Medical detox services" loading="lazy">
-        </div>
-        <div class="service-body">
-          <div class="service-icon"><i class="fa-solid fa-syringe"></i></div>
-          <h3>Medical Detox</h3>
-          <p>Safe, medically supervised withdrawal management to cleanse your body from alcohol or drugs while keeping you comfortable and stable.</p>
-          <a href="services.html#detox" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+    <div class="service-timeline" id="servicePath">
+
+      <div class="ts-step">
+        <div class="ts-icon-wrap"><i class="fa-solid fa-syringe"></i></div>
+        <div class="ts-body">
+          <div class="ts-badge">Step 1</div>
+          <div class="ts-label">Medical Detox</div>
+          <div class="ts-expand">
+            <p>Safe, 24/7 medically supervised withdrawal from alcohol, opioids, and other substances — the supported first step into recovery.</p>
+            <a href="services.html#detox" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
 
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80" alt="Residential inpatient treatment" loading="lazy">
-        </div>
-        <div class="service-body">
-          <div class="service-icon"><i class="fa-solid fa-house-medical"></i></div>
-          <h3>Residential Treatment</h3>
-          <p>Immersive 24/7 inpatient care in a structured, supportive environment &mdash; available in 30, 60, and 90-day programs tailored to your needs.</p>
-          <a href="services.html#residential" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      <div class="ts-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+      <div class="ts-step">
+        <div class="ts-icon-wrap"><i class="fa-solid fa-house-medical"></i></div>
+        <div class="ts-body">
+          <div class="ts-badge">Step 2</div>
+          <div class="ts-label">Residential</div>
+          <div class="ts-expand">
+            <p>Immersive 30, 60, or 90-day inpatient care in a structured, healing environment where you can focus entirely on recovery.</p>
+            <a href="services.html#residential" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
 
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Partial hospitalization program" loading="lazy">
-        </div>
-        <div class="service-body">
-          <div class="service-icon"><i class="fa-solid fa-hospital"></i></div>
-          <h3>Partial Hospitalization (PHP)</h3>
-          <p>Intensive day treatment &mdash; typically 5 days a week &mdash; providing clinical structure while you begin transitioning back to daily life.</p>
-          <a href="services.html#php" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      <div class="ts-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+      <div class="ts-step">
+        <div class="ts-icon-wrap"><i class="fa-solid fa-hospital"></i></div>
+        <div class="ts-body">
+          <div class="ts-badge">Step 3</div>
+          <div class="ts-label">PHP</div>
+          <div class="ts-expand">
+            <p>Intensive day treatment 5 days a week — clinical structure while you begin transitioning back to everyday life.</p>
+            <a href="services.html#php" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
 
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://images.unsplash.com/photo-1543269664-7eef42226a21?auto=format&fit=crop&w=600&q=80" alt="Intensive outpatient program" loading="lazy">
-        </div>
-        <div class="service-body">
-          <div class="service-icon"><i class="fa-solid fa-people-group"></i></div>
-          <h3>Intensive Outpatient (IOP)</h3>
-          <p>Flexible group and individual therapy sessions &mdash; 3 to 5 days per week &mdash; that fit around work, school, and family commitments.</p>
-          <a href="services.html#iop" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      <div class="ts-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+      <div class="ts-step">
+        <div class="ts-icon-wrap"><i class="fa-solid fa-people-group"></i></div>
+        <div class="ts-body">
+          <div class="ts-badge">Step 4</div>
+          <div class="ts-label">IOP</div>
+          <div class="ts-expand">
+            <p>Flexible group and individual therapy 3–5 days a week — fits around work, school, and family commitments.</p>
+            <a href="services.html#iop" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
 
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?auto=format&fit=crop&w=600&q=80" alt="Outpatient treatment program" loading="lazy">
-        </div>
-        <div class="service-body">
-          <div class="service-icon"><i class="fa-solid fa-user-doctor"></i></div>
-          <h3>Outpatient Program</h3>
-          <p>Regular counseling and support sessions designed to maintain sobriety and build coping skills while living at home.</p>
-          <a href="services.html#outpatient" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      <div class="ts-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+      <div class="ts-step">
+        <div class="ts-icon-wrap"><i class="fa-solid fa-user-doctor"></i></div>
+        <div class="ts-body">
+          <div class="ts-badge">Step 5</div>
+          <div class="ts-label">Outpatient</div>
+          <div class="ts-expand">
+            <p>Regular counseling and support sessions that maintain sobriety and build lasting coping skills while you live at home.</p>
+            <a href="services.html#outpatient" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
 
-      <div class="service-card">
-        <div class="service-img">
-          <img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?auto=format&fit=crop&w=600&q=80" alt="Aftercare and alumni support" loading="lazy">
-        </div>
-        <div class="service-body">
-          <div class="service-icon"><i class="fa-solid fa-heart"></i></div>
-          <h3>Aftercare &amp; Alumni</h3>
-          <p>Ongoing relapse prevention, peer support groups, and alumni connections to keep you strong and connected to your recovery community.</p>
-          <a href="services.html#aftercare" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      <div class="ts-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+      <div class="ts-step">
+        <div class="ts-icon-wrap"><i class="fa-solid fa-heart"></i></div>
+        <div class="ts-body">
+          <div class="ts-badge">Step 6</div>
+          <div class="ts-label">Aftercare</div>
+          <div class="ts-expand">
+            <p>Ongoing alumni support, peer groups, and relapse prevention — community connections that last a lifetime.</p>
+            <a href="services.html#aftercare" class="arrow-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
 
     </div>
+
+    <p style="text-align:center;margin-top:36px">
+      <a href="services.html" class="btn btn-outline">View All Services In Detail <i class="fa-solid fa-arrow-right"></i></a>
+    </p>
   </div>
 </section>
 
@@ -387,19 +407,19 @@
   <div class="container">
     <div class="stat-item">
       <div class="num" data-target="500" data-suffix="+">500+</div>
-      <div class="lbl">Patients Helped</div>
+      <div class="lbl">Lives Transformed</div>
     </div>
     <div class="stat-item">
       <div class="num" data-target="15" data-suffix="+">15+</div>
       <div class="lbl">Years of Experience</div>
     </div>
     <div class="stat-item">
-      <div class="num" data-target="98" data-suffix="%">98%</div>
+      <div class="num" data-target="98" data-suffix="%+">98%+</div>
       <div class="lbl">Patient Satisfaction</div>
     </div>
     <div class="stat-item">
-      <div class="num">24/7</div>
-      <div class="lbl">Admissions Support</div>
+      <div class="num" data-target="100" data-suffix="%">100%</div>
+      <div class="lbl">Confidential Admissions</div>
     </div>
   </div>
 </section>
@@ -600,7 +620,7 @@
   <div class="container">
     <div class="footer-brand">
       <a href="index.html" class="logo"><img src="pics/Grey%20Minimalist%20Woman%20Inspired%20YouTube%20Profile%20Picture%20.png" alt="Cherry Creek Treatment Center" style="height:80px;width:auto"></a>
-      <p>We're a team of licensed addiction specialists dedicated to helping you live stronger, feel better, and achieve lasting sobriety through personalized, evidence-based care.</p>
+      <p><strong style="color:rgba(255,255,255,.85);display:block;margin-bottom:6px">About Cherry Creek Treatment Center</strong>A licensed addiction treatment facility in Wichita, Kansas, providing compassionate, evidence-based care for alcohol and drug addiction. Serving adults and adolescents with a full continuum from medical detox through residential, PHP, IOP, outpatient, and aftercare.</p>
       <div class="socials">
         <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
         <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
@@ -630,13 +650,22 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Working Hours</h4>
+      <h4>Visit &amp; Hours</h4>
+      <div style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:14px;line-height:1.6">
+        <strong style="color:#fff;display:block;margin-bottom:4px"><i class="fa-solid fa-location-dot" style="color:var(--light-accent);margin-right:6px"></i>Our Address</strong>
+        8080 E Pawnee Street<br>Wichita, Kansas 67207
+      </div>
       <div class="footer-hours">
+        <div class="fhr" style="margin-bottom:6px"><span class="day" style="color:var(--light-accent);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.5px">Admissions Hours</span></div>
         <div class="fhr"><span class="day">Mon &ndash; Fri</span><span class="hrs">8:00 AM &ndash; 6:00 PM</span></div>
         <div class="fhr"><span class="day">Saturday</span><span class="hrs">9:00 AM &ndash; 3:00 PM</span></div>
         <div class="fhr"><span class="day">Sunday</span><span class="hrs">By Appointment</span></div>
-        <div class="fhr" style="margin-top:8px"><span class="day" style="color:rgba(255,255,255,.85);font-weight:600">Admissions Hotline</span></div>
-        <div class="fhr"><span class="hrs" style="color:var(--light-accent)">24 / 7 Available</span></div>
+        <div class="fhr" style="margin-top:10px;margin-bottom:4px"><span class="day" style="color:var(--light-accent);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.5px">Visiting Hours</span></div>
+        <div class="fhr"><span class="day">Mon &ndash; Fri</span><span class="hrs">4:00 &ndash; 7:00 PM</span></div>
+        <div class="fhr"><span class="day">Weekends</span><span class="hrs">12:00 &ndash; 4:00 PM</span></div>
+        <div class="fhr" style="margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.1)">
+          <span class="hrs" style="color:var(--light-accent)"><i class="fa-solid fa-phone" style="margin-right:4px"></i>Crisis Line: 24/7</span>
+        </div>
       </div>
     </div>
   </div>
@@ -671,6 +700,7 @@
 <noscript><a href="https://www.livechat.com/chat-with/19419067/" rel="nofollow">Chat with us</a></noscript>
 <!-- End of LiveChat code -->
 
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
