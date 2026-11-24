@@ -11,26 +11,35 @@ function endpoint(method) {
   return `https://${region}-aiplatform.googleapis.com/v1/${AGENT_RESOURCE}:${method}`;
 }
 
+// Sessions live in Agent Runtime's managed Sessions service.
 async function createSession(token, userId) {
-  const res = await fetch(endpoint('query'), {
+  const region = AGENT_RESOURCE.split('/locations/')[1].split('/')[0];
+  const res = await fetch(`https://${region}-aiplatform.googleapis.com/v1/${AGENT_RESOURCE}/sessions`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ class_method: 'async_create_session', input: { user_id: userId } }),
+    body: JSON.stringify({ userId }),
   });
   if (!res.ok) throw new Error(`create_session ${res.status}: ${await res.text()}`);
   const data = await res.json();
-  return data.output?.id;
+  // Returns an operation named .../sessions/<id>/operations/<op>
+  const m = (data.name || '').match(/\/sessions\/([^/]+)/);
+  if (!m) throw new Error(`create_session: unexpected ${JSON.stringify(data).slice(0, 300)}`);
+  return m[1];
 }
 
 async function ask(token, userId, sessionId, message) {
-  const res = await fetch(endpoint('streamQuery'), {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      class_method: 'async_stream_query',
-      input: { user_id: userId, session_id: sessionId, message },
-    }),
-  });
+  let res;
+  for (const method of ['async_stream_query', 'stream_query']) {
+    res = await fetch(endpoint('streamQuery'), {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        class_method: method,
+        input: { user_id: userId, session_id: sessionId, message },
+      }),
+    });
+    if (res.ok) break;
+  }
   if (!res.ok) throw new Error(`stream_query ${res.status}: ${await res.text()}`);
   const raw = await res.text();
   // The response is a series of JSON events (one per line). Collect the agent's text.
